@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+            
+
+            <form method="POST" action="/add_product" style="margin-top: 5%;" class="col-md-6">
+                <h1 style="margin-top: 5%;">Add a product</h1>
+                <input type="hidden" name="product_id" value="{{product._id}}">
+                <input type="hidden" name="county_id" value="{{county_id}}">
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Product Name</label>
+                    <input value="{{product.name}}" type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Quantity</label>
+                    <input placeholder="Enter a quantity" type="text" name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Length</label>
+                    <input placeholder="Enter a length" type="text" name="length" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Diameter</label>
+                    <select name="diameter" class="form-control" id="exampleFormControlSelect1">
+                        <option value="N/A">N/A</option>
+                        {% for diameter in diameters %}
+                            <option value="{{diameter.size}}">{{diameter.size}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <br/>
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </form>
+        </div>
+    </body>
+</html>

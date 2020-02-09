@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 style="margin-top: 5%;">Products in the inventory</h1>
+            {% for product in products %}
+            <table class="table table-bordered col-md-6 mt-3">
+                <tr>
+                    <th>Name</th>
+                    <td>{{product.name}}</td>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <td>{{product.quantity}}</td>
+                </tr>
+                <tr>
+                    <th>Length</th>
+                    <td>{{product.length}} Feet</td>
+                </tr>
+                <tr>
+                    <th>Diameter</th>
+                    <td>{{product.diameter}}</td>
+                </tr>
+            </table>
+            {% endfor %}
+        </div>
+    </body>
+</html>

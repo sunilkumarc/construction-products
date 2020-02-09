@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    
+
+    <body>
+        <div class="container">
+            <form method="POST" action="/select_products" style="margin-top: 5%;" class="col-md-6">
+                <h1 style="margin-top: 5%;">Select a product</h1>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Select a County</label>
+                  <select name="county" class="form-control" id="exampleFormControlSelect1">
+                    {% for county in counties %}
+                        <option value={{county._id}}>{{ county.name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Select a Product</label>
+                    <select name="product" class="form-control" id="exampleFormControlSelect1">
+                        {% for product in products %}
+                            <option value="{{product._id}}">{{ product.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Product</button>
+            </form>
+        </div>
+    </body>
+</html>
